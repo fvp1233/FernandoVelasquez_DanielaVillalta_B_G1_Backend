@@ -1,4 +1,4 @@
-package Entities;
+package FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

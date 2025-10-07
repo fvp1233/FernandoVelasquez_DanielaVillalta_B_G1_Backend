@@ -1,6 +1,6 @@
-package Repositories;
+package FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Repositories;
 
-import Entities.PeliculaEntity;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Entities.PeliculaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

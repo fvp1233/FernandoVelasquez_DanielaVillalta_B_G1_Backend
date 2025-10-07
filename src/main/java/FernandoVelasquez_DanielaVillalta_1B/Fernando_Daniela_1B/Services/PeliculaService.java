@@ -1,9 +1,9 @@
-package Services;
+package FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Services;
 
-import Entities.PeliculaEntity;
-import Exceptions.ExceptionPeliculaNoEncontrada;
-import Models.DTO.PeliculaDTO;
-import Repositories.PeliculaRepository;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Entities.PeliculaEntity;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Exceptions.ExceptionPeliculaNoEncontrada;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Models.DTO.PeliculaDTO;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Repositories.PeliculaRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +27,7 @@ public class PeliculaService {
         dto.setGenero(entity.getGenero());
         dto.setAnioEstreno(entity.getAnioEstreno());
         dto.setDuracion(entity.getDuracion());
+        dto.setFecha_creacion(entity.getFecha_creacion());
         return dto;
     }
 
@@ -37,6 +38,7 @@ public class PeliculaService {
         entity.setGenero(json.getGenero());
         entity.setAnioEstreno(json.getAnioEstreno());
         entity.setDuracion(json.getDuracion());
+        entity.setFecha_creacion(json.getFecha_creacion());
         return entity;
     }
 
@@ -70,6 +72,7 @@ public class PeliculaService {
         peliculaExiste.setGenero(json.getGenero());
         peliculaExiste.setAnioEstreno(json.getAnioEstreno());
         peliculaExiste.setDuracion(json.getDuracion());
+        peliculaExiste.setFecha_creacion(json.getFecha_creacion());
         PeliculaEntity peliculaActualizada = repo.save(peliculaExiste);
         return convertirADTO(peliculaActualizada);
     }

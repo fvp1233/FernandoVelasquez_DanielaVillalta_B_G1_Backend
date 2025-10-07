@@ -1,9 +1,9 @@
-package Controllers;
+package FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Controllers;
 
-import Exceptions.ExceptionPeliculaDuplicada;
-import Exceptions.ExceptionPeliculaNoEncontrada;
-import Models.DTO.PeliculaDTO;
-import Services.PeliculaService;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Exceptions.ExceptionPeliculaDuplicada;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Exceptions.ExceptionPeliculaNoEncontrada;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Models.DTO.PeliculaDTO;
+import FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Services.PeliculaService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +26,7 @@ public class PeliculaController {
 
     @GetMapping("/consultarPeliculas")
     public List<PeliculaDTO> obtenerDatos(){
+        System.out.println("Entre al endpoint");
         return service.obtenerPeliculas();
     }
 

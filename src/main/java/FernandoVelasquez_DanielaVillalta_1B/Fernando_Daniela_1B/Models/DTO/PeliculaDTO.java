@@ -1,4 +1,4 @@
-package Models.DTO;
+package FernandoVelasquez_DanielaVillalta_1B.Fernando_Daniela_1B.Models.DTO;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +29,6 @@ public class PeliculaDTO {
     @NotNull
     private Integer duracion;
 
-    @NotBlank
+
     private Date fecha_creacion;
 }
