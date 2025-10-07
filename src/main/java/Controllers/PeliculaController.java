@@ -1,8 +1,7 @@
 package Controllers;
 
-import Entities.PeliculaEntity;
-import Exceptions.ExceptionUsuarioDuplicado;
-import Exceptions.ExceptionUsuarioNoEncontrado;
+import Exceptions.ExceptionPeliculaDuplicada;
+import Exceptions.ExceptionPeliculaNoEncontrada;
 import Models.DTO.PeliculaDTO;
 import Services.PeliculaService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -69,9 +68,9 @@ public class PeliculaController {
             PeliculaDTO dto = service.ActualizarPelicula(id, json);
             return ResponseEntity.ok(dto);
 
-        } catch (ExceptionUsuarioNoEncontrado e){
+        } catch (ExceptionPeliculaNoEncontrada e){
             return ResponseEntity.notFound().build();
-        } catch (ExceptionUsuarioDuplicado e){
+        } catch (ExceptionPeliculaDuplicada e){
             return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of(
                     "Error", "Datos duplicados",
                     "Campo", e.getCampoDulicado
@@ -81,11 +80,11 @@ public class PeliculaController {
     }
 
     @DeleteMapping("/eliminarPelicula/{id}")
-    public ResponseEntity<void> eliminarPelicula(@PathVariable Long id){
+    public ResponseEntity<Void> eliminarPelicula(@PathVariable Long id){
         try {
             service.eliminarPelicula(id);
             return ResponseEntity.noContent().build();
-        }catch (ExceptionUsuarioNoEncontrado e){
+        }catch (ExceptionPeliculaNoEncontrada e){
             return ResponseEntity.notFound().build();
 
         }
@@ -96,7 +95,7 @@ public class PeliculaController {
         try {
             PeliculaDTO pelicula = service.obtenerPeliculaPorId(id);
             return ResponseEntity.ok(pelicula);
-        }catch (ExceptionUsuarioNoEncontrado e){
+        }catch (ExceptionPeliculaNoEncontrada e){
             return ResponseEntity.notFound().build();
         }
     }
